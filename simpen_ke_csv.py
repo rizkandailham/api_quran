@@ -11,7 +11,9 @@ import pandas as pd
 #np.savetxt('surat al fatihah.csv',teks,delimiter=',')
 
 def konversi_dict(teks):
-    return array
+    teks=list(teks.items())
+    teks=np.array(teks)
+    return teks
 
 def ambil_isi(teks):
     total_keterangan=[]
