@@ -11,13 +11,12 @@ r.status_code
 r.headers['content-type']
 r.encoding
 r.text
-
+print(r.text)
 #convert response ke json array
-arr=r.text              
+arr=r.text
 arr=json.loads(arr)
 
-#akses ke array               
+#akses ke array
 arr['status']
 arr['nomor']
 arr['surat']
-          
