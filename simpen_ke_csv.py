@@ -4,17 +4,13 @@ import json
 from numpy import array
 import pandas as pd
 
-r=requests.get('https://equran.id/api/surat/1')
-teks=r.text
-teks=json.loads(teks)
+
 #save ke csv
 #teks=np.array(teks)
 #print(teks['jumlah_ayat'])
 #np.savetxt('surat al fatihah.csv',teks,delimiter=',')
 
 def konversi_dict(teks):
-    data=list(teks.items())
-    array=np.array(data)
     return array
 
 def ambil_isi(teks):
@@ -28,8 +24,11 @@ def lihat_index(teks):
         bit_simpen.append(i)
     print(*bit_simpen, sep="\n")
 
-def simpan_ke_csv(teks):
-    teks=konversi_dict(teks)
+def simpan_ke_csv(url):
+    r=requests.get(url)
+    teks=r.text
+    teks=json.loads(teks)
+    data=list(teks.items())
+    teks=np.array(data)
     df=pd.DataFrame(teks)
     df.to_csv("Daftar Surat.csv")
-simpan_ke_csv(teks)
