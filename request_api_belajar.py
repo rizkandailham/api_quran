@@ -10,7 +10,7 @@ r= requests.get('https://equran.id/api/surat/1')
 r.status_code
 r.headers['content-type']
 r.encoding
-r.text 
+r.text
 print(r.text)
 #convert response ke json array
 arr=r.text
