@@ -15,12 +15,17 @@ def konversi_dict(teks):
     teks=np.array(teks)
     return teks
 
-def ambil_isi(teks):
-    total_keterangan=[]
+def ambil_isi(url):
+    r=requests.get(url)
+    teks=json.loads(r.text)
+    tmp=[]
     for i in teks:
-        print(teks[i])
+        tmp.append(teks[i])
+    return tmp
 
-def lihat_index(teks):
+def lihat_index(url):
+    r=requests.get(url)
+    teks=json.loads(r.text)
     bit_simpen=[]
     for i in teks:
         bit_simpen.append(i)
@@ -34,3 +39,5 @@ def simpan_ke_csv(url):
     teks=np.array(data)
     df=pd.DataFrame(teks)
     df.to_csv("Daftar Surat.csv")
+
+ambil_isi(teks)
